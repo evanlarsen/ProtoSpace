@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "SubSpace";
+}
+
+
+@section header {
+    <script src="@Url.Content("~/Content/scripts/libs/jquery/jquery.min.js")"></script>
+    <script src="@Url.Content("~/Content/scripts/libs/easel/easeljs.min.js")"></script>
+    <script src="@Url.Content("~/Content/scripts/game.js")"></script>
+
+    <style type="text/css">
+        #stage {
+            border: 1px solid black;
+        }
+    </style>
+}
+
+
+<canvas id="stage" width="800" height="600"></canvas>

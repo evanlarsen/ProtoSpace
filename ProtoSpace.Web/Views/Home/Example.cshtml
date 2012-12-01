@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Example";
+}
+
+@section header {
+    <script src="@Url.Content("~/Content/scripts/libs/jquery/jquery.min.js")"></script>
+    <script src="@Url.Content("~/Content/scripts/libs/easel/easeljs.min.js")"></script>
+    <script src="@Url.Content("~/Content/scripts/example/ship.js")"></script>
+    <script src="@Url.Content("~/Content/scripts/example/spacerock.js")"></script>
+    <script src="@Url.Content("~/Content/scripts/example/bullet.js")"></script>
+    <script src="@Url.Content("~/Content/scripts/example/game.js")"></script>
+
+    <style type="text/css">
+        #stage {
+            background-color: black;
+        }
+    </style>
+
+    <script>
+        $(function () {
+            game.init('stage');
+        });
+    </script>
+}
+
+<canvas id="stage" width="980" height="600"></canvas>
