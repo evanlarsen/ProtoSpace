@@ -17,6 +17,7 @@ module game {
     var KEYCODE_UP = 38;		//usefull keycode
     var KEYCODE_LEFT = 37;		//usefull keycode
     var KEYCODE_RIGHT = 39;		//usefull keycode
+    var KEYCODE_DOWN = 40;
     var KEYCODE_W = 87;			//usefull keycode
     var KEYCODE_A = 65;			//usefull keycode
     var KEYCODE_D = 68;			//usefull keycode
@@ -25,6 +26,7 @@ module game {
     var lfHeld: bool;			//is the user holding a turn left command
     var rtHeld: bool;			//is the user holding a turn right command
     var fwdHeld: bool;			//is the user holding a forward command
+    var bckHeld: bool;          //is the user holding a backward command
 
     var timeToRock: number;		//difficulty adjusted version of ROCK_TIME
     var nextRock: number;		//ticks left untill a new space rock arrives
@@ -136,6 +138,8 @@ module game {
 	    //handle thrust
 	    if(alive && fwdHeld){
 		    ship.accelerate();
+	    } else if (alive && bckHeld) {
+	        ship.decelerate();
 	    }
 	
 	    //handle new spaceRocks
@@ -347,6 +351,7 @@ module game {
 		    case KEYCODE_RIGHT: rtHeld = true; break;
 		    case KEYCODE_W:
 		    case KEYCODE_UP:	fwdHeld = true; break;
+	        case KEYCODE_DOWN:  bckHeld = true; break;
 	    }
     }
 
@@ -361,6 +366,7 @@ module game {
 		    case KEYCODE_RIGHT: rtHeld = false; break;
 		    case KEYCODE_W:
 		    case KEYCODE_UP:	fwdHeld = false; break;
+            case KEYCODE_DOWN:  bckHeld = false; break;
 	    }
     }
 

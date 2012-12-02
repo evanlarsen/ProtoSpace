@@ -2,7 +2,7 @@ var __extends = this.__extends || function (d, b) {
     function __() { this.constructor = d; }
     __.prototype = b.prototype;
     d.prototype = new __();
-}
+};
 var SpaceRock = (function (_super) {
     __extends(SpaceRock, _super);
     function SpaceRock(size) {

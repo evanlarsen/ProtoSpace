@@ -1,1 +1,1 @@
-{"version":3,"file":"bullet.js","sources":["bullet.ts"],"names":[],"mappings":"AAAA;;;;;AAEA;;IAII;QAJJ;QAMQ,KAAK;AACR;IAED,wBAAA;QAEK,CAAK,kBAAO;AAChB;IAZL;GAAqB,SAAS"}
+{"version":3,"file":"bullet.js","sources":["bullet.ts"],"names":["Bullet","Bullet.constructor","Bullet.init"],"mappings":"AAAA;;;;;AAEA;;IAIIA,SAJEA,MAAMA;QAKJC,iBAQPA;QAPOA,IAAIA,CAACA,IAAIA,EAAEA;IACfA,CAACA;IAEDD,wBAAAA;QAEIE,CAACA,gBAAUA,EAAEA,UAAUA,EAAEA;IAC7BA,CAACA;IACLF;AAACA,CAAAA,EAboB,QAAQ,CAAC,KAAK,EAalC;AAAA"}

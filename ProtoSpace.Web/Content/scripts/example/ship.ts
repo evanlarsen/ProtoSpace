@@ -118,4 +118,20 @@ class Ship extends createjs.Container{
 		this.vX = Math.min(Ship.MAX_VELOCITY, Math.max(-Ship.MAX_VELOCITY, this.vX));
 		this.vY = Math.min(Ship.MAX_VELOCITY, Math.max(-Ship.MAX_VELOCITY, this.vY));
 	}
+
+    decelerate() {
+        //increase push amount for acceleration
+		this.thrust += this.thrust - 0.6;
+		if(this.thrust <= -Ship.MAX_THRUST) {
+			this.thrust = -Ship.MAX_THRUST;
+		}
+		
+		//accelerate
+		this.vX += Math.sin(this.rotation*(Math.PI/-180))*this.thrust;
+		this.vY += Math.cos(this.rotation*(Math.PI/-180))*this.thrust;
+		
+		//cap max speeds
+		this.vX = Math.max(-Ship.MAX_VELOCITY, Math.min(Ship.MAX_VELOCITY, this.vX));
+		this.vY = Math.max(-Ship.MAX_VELOCITY, Math.min(Ship.MAX_VELOCITY, this.vY));
+    }
 }

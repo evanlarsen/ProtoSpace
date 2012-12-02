@@ -11,6 +11,7 @@ var game;
     var KEYCODE_UP = 38;
     var KEYCODE_LEFT = 37;
     var KEYCODE_RIGHT = 39;
+    var KEYCODE_DOWN = 40;
     var KEYCODE_W = 87;
     var KEYCODE_A = 65;
     var KEYCODE_D = 68;
@@ -18,6 +19,7 @@ var game;
     var lfHeld;
     var rtHeld;
     var fwdHeld;
+    var bckHeld;
     var timeToRock;
     var nextRock;
     var nextBullet;
@@ -94,6 +96,10 @@ var game;
         }
         if(alive && fwdHeld) {
             ship.accelerate();
+        } else {
+            if(alive && bckHeld) {
+                ship.decelerate();
+            }
         }
         if(nextRock <= 0) {
             if(alive) {
@@ -288,6 +294,11 @@ var game;
                 break;
 
             }
+            case KEYCODE_DOWN: {
+                bckHeld = true;
+                break;
+
+            }
         }
     }
     function handleKeyUp(e) {
@@ -318,11 +329,15 @@ var game;
                 break;
 
             }
+            case KEYCODE_DOWN: {
+                bckHeld = false;
+                break;
+
+            }
         }
     }
     function addScore(value) {
         scoreField.text = (Number(scoreField.text) + Number(value)).toString();
     }
 })(game || (game = {}));
-
 //@ sourceMappingURL=game.js.map

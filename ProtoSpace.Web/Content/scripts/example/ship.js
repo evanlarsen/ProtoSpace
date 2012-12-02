@@ -2,7 +2,7 @@ var __extends = this.__extends || function (d, b) {
     function __() { this.constructor = d; }
     __.prototype = b.prototype;
     d.prototype = new __();
-}
+};
 var Ship = (function (_super) {
     __extends(Ship, _super);
     function Ship() {
@@ -89,6 +89,16 @@ var Ship = (function (_super) {
         this.vY += Math.cos(this.rotation * (Math.PI / -180)) * this.thrust;
         this.vX = Math.min(Ship.MAX_VELOCITY, Math.max(-Ship.MAX_VELOCITY, this.vX));
         this.vY = Math.min(Ship.MAX_VELOCITY, Math.max(-Ship.MAX_VELOCITY, this.vY));
+    };
+    Ship.prototype.decelerate = function () {
+        this.thrust += this.thrust - 0.6;
+        if(this.thrust <= -Ship.MAX_THRUST) {
+            this.thrust = -Ship.MAX_THRUST;
+        }
+        this.vX += Math.sin(this.rotation * (Math.PI / -180)) * this.thrust;
+        this.vY += Math.cos(this.rotation * (Math.PI / -180)) * this.thrust;
+        this.vX = Math.max(-Ship.MAX_VELOCITY, Math.min(Ship.MAX_VELOCITY, this.vX));
+        this.vY = Math.max(-Ship.MAX_VELOCITY, Math.min(Ship.MAX_VELOCITY, this.vY));
     };
     return Ship;
 })(createjs.Container);
