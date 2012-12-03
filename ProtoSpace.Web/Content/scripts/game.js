@@ -1,10 +1,11 @@
-$(main);
-function main() {
-    var stage = new createjs.Stage(document.getElementById("stage"));
-    var circle = new createjs.Shape();
-    circle.graphics.beginFill("red").drawCircle(0, 0, 50);
-    circle.x = 100;
-    circle.y = 100;
-    stage.addChild(circle);
-    stage.update();
-}
+var game;
+(function (game) {
+    var canvas;
+    var stage;
+    function init(canvasId) {
+        canvas = document.getElementById(canvasId);
+        stage = new createjs.Stage(canvas);
+    }
+    game.init = init;
+})(game || (game = {}));
+//@ sourceMappingURL=game.js.map
